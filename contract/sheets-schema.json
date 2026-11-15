@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "timezone": "Europe/London",
+  "weight_unit": "kg",
+  "version_cell": "'Guide'!B4",
+  "tables": {
+    "WorkoutPlan": {
+      "headers": [
+        "Person",
+        "Workout",
+        "Pair",
+        "Exercise",
+        "Starting weight (kg)",
+        "Weight basis",
+        "Equipment",
+        "Repetition mode",
+        "Working sets",
+        "Target reps",
+        "Default increase (kg)",
+        "Progression",
+        "Active",
+        "Plan ID",
+        "Workout ID",
+        "Exercise ID",
+        "Equipment count",
+        "Notes"
+      ],
+      "fields": [
+        "person",
+        "workout",
+        "pair",
+        "exercise",
+        "starting_weight_kg",
+        "weight_basis",
+        "equipment",
+        "repetition_mode",
+        "working_sets",
+        "target_reps",
+        "default_increase_kg",
+        "progression",
+        "active",
+        "plan_id",
+        "workout_id",
+        "exercise_id",
+        "equipment_count",
+        "notes"
+      ],
+      "owner": "sheet",
+      "grain": "One person and exercise assignment within a workout"
+    },
+    "Sessions": {
+      "headers": [
+        "Session ID",
+        "Person ID",
+        "Workout ID",
+        "Workout",
+        "Started at UTC",
+        "Completed at UTC",
+        "Session date",
+        "Status",
+        "Writer device ID",
+        "Revision",
+        "Notes",
+        "Operation ID"
+      ],
+      "owner": "app",
+      "grain": "One person and gym session"
+    },
+    "SessionExercises": {
+      "headers": [
+        "Session exercise ID",
+        "Session ID",
+        "Exercise ID",
+        "Exercise",
+        "Planned order",
+        "Actual order",
+        "Pair",
+        "Status",
+        "Weight basis",
+        "Equipment",
+        "Equipment count",
+        "Repetition mode",
+        "Target sets",
+        "Target reps",
+        "Default increase (kg)",
+        "Suggested weight (kg)",
+        "Suggestion source session ID",
+        "Suggestion reason",
+        "Notes",
+        "Revision"
+      ],
+      "owner": "app",
+      "grain": "One exercise occurrence within a session"
+    },
+    "Sets": {
+      "headers": [
+        "Set ID",
+        "Session exercise ID",
+        "Set number",
+        "Side",
+        "Weight (kg)",
+        "Reps",
+        "Set type",
+        "Status",
+        "Recorded at UTC",
+        "Revision",
+        "Notes"
+      ],
+      "owner": "app",
+      "grain": "One set and side; Together has one row, Per side has a Left and Right row"
+    }
+  },
+  "enums": {
+    "weight_basis": [
+      "Per implement",
+      "Combined",
+      "Bodyweight"
+    ],
+    "equipment": [
+      "Dumbbell",
+      "Barbell",
+      "Kettlebell",
+      "Cable",
+      "Bodyweight",
+      "Machine",
+      "Unspecified"
+    ],
+    "repetition_mode": [
+      "Together",
+      "Per side"
+    ],
+    "progression": [
+      "3 x 12",
+      "Manual"
+    ],
+    "side": [
+      "Together",
+      "Left",
+      "Right"
+    ]
+  }
+}
