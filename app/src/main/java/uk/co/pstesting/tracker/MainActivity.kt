@@ -59,7 +59,7 @@ class MainActivity : ComponentActivity() {
 
     private fun accept(result: AuthorizationResult) {
         val token = result.accessToken
-        if (token.isNullOrBlank() || result.grantedScopes.none { it.scopeUri == SHEETS_SCOPE }) {
+        if (token.isNullOrBlank() || SHEETS_SCOPE !in result.grantedScopes) {
             model.authorisationFailed("Spreadsheet access was not granted. Select the check again when ready.")
         } else model.authorised(token)
     }
